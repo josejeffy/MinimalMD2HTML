@@ -7,11 +7,12 @@ int main(int argc, char **argv) {
   map html_tags[] = {{"#", "<h1>%s</h1>"},
                      {"##", "<h2>%s</h2>"},
                      {">", "<blockquote>%s</blockquote>"},
+                     {"<", "<a href='%s'>%s</a>"},
                      {"p", "<p>%s</p>"},
                      {"!", "<img src='%s'/>"}};
   int len = sizeof(html_tags) / sizeof(map), i, j;
   char md[LEN], html[OUTPUTLEN] = "<html><head><link rel=\"stylesheet\" href=\"https://cdn.jsdelivr.net/npm/water.css@2/out/water.css\"></head></body>", temp[LEN];
-  FILE *mdfile = fopen(argv[1], "r");
+  FILE *mdfile = fopen("test.md", "r");
   if (mdfile == NULL)
     return -1;
   while (1) {
@@ -28,7 +29,9 @@ int main(int argc, char **argv) {
       char *pattern = get_value(html_tags, buf, len);
       if (pattern == NULL) {
         sprintf(temp, get_value(html_tags, "p", len), md);
-      } else {
+      } else if(strcmp(buf,"<")==0){
+        sprintf(temp, get_value(html_tags, buf, len),  &md[++i], &md[i]);
+      }else {
         sprintf(temp, get_value(html_tags, buf, len), &md[++i]);
       }
       strcat(html, temp);

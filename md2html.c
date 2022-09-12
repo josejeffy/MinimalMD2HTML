@@ -1,7 +1,7 @@
 #include "map.h"
 #include <stdio.h>
 #define LEN 200
-#define OUTPUTLEN 2000
+#define OUTPUTLEN 20000
 
 int main(int argc, char **argv) {
   map html_tags[] = {{"#", "<h1>%s</h1>"},

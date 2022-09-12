@@ -10,7 +10,7 @@ int main(int argc, char **argv) {
                      {"p", "<p>%s</p>"},
                      {"!", "<img src='%s'/>"}};
   int len = sizeof(html_tags) / sizeof(map), i, j;
-  char md[LEN], html[OUTPUTLEN] = "", temp[LEN];
+  char md[LEN], html[OUTPUTLEN] = "<html><head><link rel=\"stylesheet\" href=\"https://cdn.jsdelivr.net/npm/water.css@2/out/water.css\"></head></body>", temp[LEN];
   FILE *mdfile = fopen(argv[1], "r");
   if (mdfile == NULL)
     return -1;
@@ -34,6 +34,7 @@ int main(int argc, char **argv) {
       strcat(html, temp);
     }
   }
+  strcat(html, "</body></html>");
   printf("%s\n", html);
   fclose(mdfile);
   return 0;

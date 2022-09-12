@@ -4,7 +4,7 @@ A minimal markdown to html convertor using C
 Supports only 5 tags
 - #(space)content => h1
 - ##(space)content => h2
-- >(space)content => blockquote
+- \> (space)content => blockquote
 - !(space)link to image => img (different from usual implementations)
 - p is used for any content without any identifiers 
 

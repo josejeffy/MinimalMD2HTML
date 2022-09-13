@@ -22,9 +22,9 @@ test continues
 **test.html**
 
 ``` html
-<h1>md 2 html 
+<html><head><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/water.css@2/out/water.css"></head></body><h1>md 2 html 
 </h1><blockquote>Minimal convertor in C
-</blockquote><p>test continues</p>
+</blockquote><p>test continues</p></body></html>
 ```
 
 Uses water.css for styling

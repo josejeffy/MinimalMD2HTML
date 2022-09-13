@@ -19,7 +19,7 @@ int main(int argc, char **argv) {
     if (feof(mdfile))
       break;
     fgets(md, LEN - 1, mdfile);
-    if (strcmp(md, "") != 0) {
+    if (strcmp(md, "\n") != 0) {
       char buf[3];
       j = 0, i = 0;
       while (md[i] != ' ') {
